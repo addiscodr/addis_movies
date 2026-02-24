@@ -1,5 +1,6 @@
 import 'package:addis_movies/utils/text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class Description extends StatelessWidget {
   final String name, description, bannerUrl, posterUrl, vote, launchOn;
@@ -24,23 +25,53 @@ class Description extends StatelessWidget {
               height: 250,
               child: Stack(
                 children: [
-                  Positioned(
-                    child: SizedBox(
-                      height: 250,
-                      width: MediaQuery.of(context).size.width,
-                      child: Image.network(
-                        bannerUrl,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTree) =>
-                            const Icon(Icons.error),
+                  // Banner Image
+                  Positioned.fill(
+                    child: Image.network(
+                      bannerUrl,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const Icon(Icons.error),
+                    ),
+                  ),
+
+                  // Dark gradient for better visibility
+                  Positioned.fill(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.black54, Colors.transparent],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomCenter,
+                        ),
                       ),
                     ),
                   ),
+
+                  // 🔙 Cupertino Back Button
+                  Positioned(
+                    top: MediaQuery.of(context).padding.top + 10,
+                    left: 10,
+                    child: GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: const CircleAvatar(
+                        backgroundColor: Colors.black54,
+                        radius: 20,
+                        child: Icon(
+                          CupertinoIcons.back,
+                          color: Colors.white,
+                          size: 22,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // ⭐ Rating Text
                   Positioned(
                     bottom: 10,
+                    left: 10,
                     child: ModifiedText(
-                      text: ' ⭐ Average Rating - $vote',
-                      color: Colors.white,
+                      text: '⭐ Average Rating - $vote',
                       size: 18,
                     ),
                   ),
