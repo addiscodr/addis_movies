@@ -45,7 +45,8 @@ class TopRatedMovies extends StatelessWidget {
                     );
                   },
                   child: topRatedMovies[index]['title'] != null
-                      ? SizedBox(
+                      ? Container(
+                        padding: EdgeInsets.only(right: 3),
                           width: 140,
                           child: Column(
                             children: [
@@ -66,7 +67,7 @@ class TopRatedMovies extends StatelessWidget {
                                     topRatedMovies[index]['title'] ??
                                     'Loading...',
                                 color: Colors.white,
-                                size: 20,
+                                size: 16,
                               ),
                             ],
                           ),

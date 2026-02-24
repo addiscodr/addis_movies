@@ -72,7 +72,7 @@ class TV extends StatelessWidget {
                                         tv[index]['original_name'] ??
                                         'Loading...',
                                     color: Colors.white,
-                                    size: 20,
+                                    size: 16,
                                   ),
                                 ),
                               ],

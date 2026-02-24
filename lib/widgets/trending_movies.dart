@@ -47,32 +47,36 @@ class TrendingMovies extends StatelessWidget {
                   },
 
                   child: trendingMovies[index]['title'] != null
-                      ? SizedBox(
-                          width: 140,
-                          child: Column(
-                            children: [
-                              Flexible(
-                                child: Container(
-                                  height: 180,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                        'https://image.tmdb.org/t/p/w500/${trendingMovies[index]['backdrop_path']}',
+                      ? Container(
+                        padding: EdgeInsets.only(right: 3),
+                        child: SizedBox(
+                          
+                            width: 140,
+                            child: Column(
+                              children: [
+                                Flexible(
+                                  child: Container(
+                                    height: 180,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                          'https://image.tmdb.org/t/p/w500/${trendingMovies[index]['backdrop_path']}',
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              ModifiedText(
-                                text:
-                                    trendingMovies[index]['title'] ??
-                                    'Loading...',
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ],
+                                ModifiedText(
+                                  text:
+                                      trendingMovies[index]['title'] ??
+                                      'Loading...',
+                                  color: Colors.white,
+                                  size: 16,
+                                ),
+                              ],
+                            ),
                           ),
-                        )
+                      )
                       : Container(),
                 );
               },
