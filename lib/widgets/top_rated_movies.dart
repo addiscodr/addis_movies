@@ -37,8 +37,9 @@ class TopRatedMovies extends StatelessWidget {
                               'https://image.tmdb.org/t/p/w500/${topRatedMovies[index]['backdrop_path']}',
                           posterUrl:
                               'https://image.tmdb.org/t/p/w500/${topRatedMovies[index]['poster_path']}',
-                          vote: topRatedMovies[index]['vote_average']
-                              .toString(),
+                          vote: (topRatedMovies[index]['vote_average'] as num)
+                              .toDouble()
+                              .toStringAsFixed(1),
                           launchOn: topRatedMovies[index]['release_date'],
                         ),
                       ),
@@ -46,7 +47,7 @@ class TopRatedMovies extends StatelessWidget {
                   },
                   child: topRatedMovies[index]['title'] != null
                       ? Container(
-                        padding: EdgeInsets.only(right: 3),
+                          padding: EdgeInsets.only(right: 3),
                           width: 140,
                           child: Column(
                             children: [

@@ -38,8 +38,8 @@ class TrendingMovies extends StatelessWidget {
 
                           posterUrl:
                               'https://image.tmdb.org/t/p/w500/${trendingMovies[index]['poster_path']}',
-                          vote: trendingMovies[index]['vote_average']
-                              .toString(),
+                          vote: (trendingMovies[index]['vote_average'] as num).toDouble()
+                              .toStringAsFixed(1),
                           launchOn: trendingMovies[index]['release_date'],
                         ),
                       ),
