@@ -1,4 +1,4 @@
-import 'package:addis_movies/pages/home_page.dart';
+import 'package:addis_movies/auth/login_or_register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -11,7 +11,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.dark(primary: Colors.green),
       ),
 
-      home: const HomePage(),
+      home: const LoginOrRegisterPage(),
     );
   }
 }
